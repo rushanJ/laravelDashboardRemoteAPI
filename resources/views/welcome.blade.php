@@ -9,7 +9,46 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Equiepment Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<style>
+  a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#previous1, #previous2 {
+  background-color: #d6d6d6;
+  color: black;
+}
+
+#next1, #next2 {
+  background-color: #006c94;
+  color: white;
+}
+
+#previous1, #next1{
+  border-radius: 4px;
+  width: 100px;
+  text-align: center;
+}
+
+#previous2, #next2 {
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.centered {
+  position: absolute;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+</style>
+<title>Equiepment Dashboard</title>
   </head>
   <body>
     {{-- Nav Bar Start --}}
@@ -73,9 +112,17 @@
       });
     </script>
      {{-- Bar Chart End --}}
+     {{-- Buttons Start --}}
+     <div class="centered">
+      <a href="?lastId={{ $previousId }}" id="previous1"> Previous</a>
+      <a href="?lastId={{ $nextId }}" id="next1">Next </a>
+         <br> <br>
+     </div>
+     
+   {{-- Buttons End --}}
  {{-- Table Start --}}
 <div class="table-responsive">
-<table class="table" style="margin-left: 80px; margin-right:80px;">
+<table class="table" style="margin-left: 80px; margin-right:80px; margin-top: 20px;">
     <thead class="thead-dark">
       <tr>
         <th scope="col">AssetID</th>

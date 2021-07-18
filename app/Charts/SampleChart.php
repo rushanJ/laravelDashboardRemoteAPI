@@ -18,7 +18,9 @@ class SampleChart extends BaseChart
      */
     public function handler(Request $request): Chartisan
     {
-        $dataList=Http::get('http://ivivaanywhere.ivivacloud.com/api/Asset/Asset/All?apikey=SC:demo:64a9aa122143a5db&max=100&last=0')->json();//getData from Remote API
+        if ($request->session()->has('lastId')) $lastId= $request->session()->get('lastId');
+        else $lastId=0;
+        $dataList=Http::get("http://ivivaanywhere.ivivacloud.com/api/Asset/Asset/All?apikey=SC:demo:64a9aa122143a5db&max=10&last=$lastId")->json();//getData from Remote API
         $labels=[];//lable set
         $data=[];//data set for lables
         $array = array();
